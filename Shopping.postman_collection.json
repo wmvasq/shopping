@@ -1,0 +1,281 @@
+{
+  "info": {
+    "_postman_id": "fbf8bf56-3d5b-46d0-8e88-8ca2b5c36e45",
+    "name": "Shopping",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48977031",
+    "_collection_link": "https://go.postman.co/collection/48977031-fbf8bf56-3d5b-46d0-8e88-8ca2b5c36e45?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "localhost:8080/products/21",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/products/5",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/products",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/products",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/orders",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3ODA3OTczNSwiZXhwIjoxNzc4MTY2MTM1fQ.yQ-F_3iNgbJOAfg66-C9D5A7K_a8FSt6-qEGg6bNHVhhLQ3QPT_QHWTT8_4ETJZR",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"clientId\": 2,\r\n    \"items\": [\r\n        { \"productId\": 2, \"quantity\": 1 },\r\n         { \"productId\": 1, \"quantity\": 1 }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/orders",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3ODA5NTI5NywiZXhwIjoxNzc4MTgxNjk3fQ.s_KnHbVv16d5NDXyHj3e-UeCFncnfq3UglTC_V9uOQnLKhSTakWfDqIWDVq6YIj8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/orders/1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3ODA5NTI5NywiZXhwIjoxNzc4MTgxNjk3fQ.s_KnHbVv16d5NDXyHj3e-UeCFncnfq3UglTC_V9uOQnLKhSTakWfDqIWDVq6YIj8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/orders/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "orders",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/orders/client/2",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3ODA5NTI5NywiZXhwIjoxNzc4MTgxNjk3fQ.s_KnHbVv16d5NDXyHj3e-UeCFncnfq3UglTC_V9uOQnLKhSTakWfDqIWDVq6YIj8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/orders/client/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "orders",
+            "client",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": " http://localhost:8080/payments",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3ODA5NTI5NywiZXhwIjoxNzc4MTgxNjk3fQ.s_KnHbVv16d5NDXyHj3e-UeCFncnfq3UglTC_V9uOQnLKhSTakWfDqIWDVq6YIj8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"orderId\": 1,\r\n    \"amount\": 99.99,\r\n    \"method\": \"CREDIT_CARD\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/payments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "payments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": " http://localhost:8080/payments",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3ODA5NTI5NywiZXhwIjoxNzc4MTgxNjk3fQ.s_KnHbVv16d5NDXyHj3e-UeCFncnfq3UglTC_V9uOQnLKhSTakWfDqIWDVq6YIj8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/payments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "payments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/payments/order/1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3ODA5NTI5NywiZXhwIjoxNzc4MTgxNjk3fQ.s_KnHbVv16d5NDXyHj3e-UeCFncnfq3UglTC_V9uOQnLKhSTakWfDqIWDVq6YIj8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/payments/order/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "payments",
+            "order",
+            "1"
+          ],
+          "query": [
+            {
+              "key": "Auto",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
