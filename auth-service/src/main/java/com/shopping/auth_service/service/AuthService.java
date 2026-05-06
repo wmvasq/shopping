@@ -14,17 +14,17 @@ public class AuthService {
 
     private final JwtTokenProvider jwtTokenProvider;
 
-    // Usuarios hardcoded (en mundo real sería base de datos)
+    // users hardcoded
     private static final String ADMIN_USER = "admin";
     private static final String ADMIN_PASSWORD = "admin123";
 
     public AuthResponse login(LoginRequest request) {
-        // Validar credenciales
+        // vali credentials
         if (!ADMIN_USER.equals(request.getUsername()) || !ADMIN_PASSWORD.equals(request.getPassword())) {
            throw new InvalidCredentialsException("Invalid username or password");
         }
 
-        // Generar token
+        // get token
         String token = jwtTokenProvider.generateToken(request.getUsername());
 
         return AuthResponse.builder()
