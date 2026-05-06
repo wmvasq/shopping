@@ -6,6 +6,8 @@ import com.shopping.orders_service.entity.Order;
 import com.shopping.orders_service.entity.OrderItem;
 import com.shopping.orders_service.entity.OrderStatus;
 import com.shopping.orders_service.repository.OrderRepository;
+import com.shopping.orders_service.exception.ResourceNotFoundException;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,7 +59,7 @@ public class OrderService {
 
     public OrderResponse getOrderById(Long id) {
         Order order = orderRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Order not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id: " + id));
         return mapToResponse(order);
     }
 

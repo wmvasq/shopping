@@ -6,6 +6,7 @@ import com.shopping.payment_service.dto.PaymentResponse;
 import com.shopping.payment_service.dto.ProcessPaymentRequest;
 import com.shopping.payment_service.entity.Payment;
 import com.shopping.payment_service.entity.PaymentStatus;
+import com.shopping.payment_service.exception.ResourceNotFoundException;
 import com.shopping.payment_service.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -64,7 +65,7 @@ public class PaymentService {
 
     public PaymentResponse getPaymentByOrderId(Long orderId) {
         Payment payment = paymentRepository.findByOrderId(orderId)
-                .orElseThrow(() -> new RuntimeException("Payment not found for order: " + orderId));
+                .orElseThrow(() -> new ResourceNotFoundException("Payment not found for order: " + orderId));
         return mapToResponse(payment);
     }
 
