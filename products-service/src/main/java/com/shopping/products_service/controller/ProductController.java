@@ -26,11 +26,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductResponse> getProductById(@PathVariable Integer id) {
-        ProductResponse product = productService.getProductById(id);
-        if (product == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(product);
+    public ResponseEntity<ProductResponse> getProductById(@PathVariable Integer id) {  
+        return ResponseEntity.ok(productService.getProductById(id));
     }
 }
