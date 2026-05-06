@@ -3,6 +3,7 @@ package com.shopping.auth_service.service;
 
 import com.shopping.auth_service.dto.AuthResponse;
 import com.shopping.auth_service.dto.LoginRequest;
+import com.shopping.auth_service.exception.InvalidCredentialsException;
 import com.shopping.auth_service.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class AuthService {
     public AuthResponse login(LoginRequest request) {
         // Validar credenciales
         if (!ADMIN_USER.equals(request.getUsername()) || !ADMIN_PASSWORD.equals(request.getPassword())) {
-            throw new RuntimeException("Invalid username or password");
+           throw new InvalidCredentialsException("Invalid username or password");
         }
 
         // Generar token
