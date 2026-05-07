@@ -19,12 +19,12 @@ public class AuthService {
     private static final String ADMIN_PASSWORD = "admin123";
 
     public AuthResponse login(LoginRequest request) {
-        // vali credentials
+        // validate credentials
         if (!ADMIN_USER.equals(request.getUsername()) || !ADMIN_PASSWORD.equals(request.getPassword())) {
            throw new InvalidCredentialsException("Invalid username or password");
         }
 
-        // get token
+        // generate token
         String token = jwtTokenProvider.generateToken(request.getUsername());
 
         return AuthResponse.builder()

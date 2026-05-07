@@ -16,6 +16,10 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * Service for processing payments.
+ * Simulates payment processing with success/failure about validate amount
+ */
 @Service
 @RequiredArgsConstructor
 public class PaymentService {
@@ -25,11 +29,12 @@ public class PaymentService {
 
     @Transactional
     public PaymentResponse processPayment(ProcessPaymentRequest request) {
-        // 1. Consultar orden real a Orders Service
+        //get Order from Orders Service
         OrderInfoDto order = ordersServiceClient.getOrderById(request.getOrderId());
 
-        // 2. Validar que el monto coincida
+        // Validate amount
         if (request.getAmount().compareTo(order.getTotalAmount()) != 0) {
+            // payment rejected
             Payment rejectedPayment = Payment.builder()
                     .orderId(request.getOrderId())
                     .amount(request.getAmount())
@@ -39,24 +44,14 @@ public class PaymentService {
                     .build();
             return mapToResponse(paymentRepository.save(rejectedPayment));
         }
-
-        // 3. Simular procesamiento
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
-        // 4. Simular probabilidad (80% aprobado)
-        boolean approved = Math.random() > 0.2;
-
+        // payment completed
         Payment payment = Payment.builder()
                 .orderId(request.getOrderId())
                 .amount(request.getAmount())
                 .method(request.getMethod())
-                .status(approved ? PaymentStatus.APPROVED : PaymentStatus.REJECTED)
-                .transactionId(approved ? "TXN-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase() : null)
-                .message(approved ? "Payment approved successfully" : "Payment rejected")
+                .status(PaymentStatus.APPROVED)
+                .transactionId("TXN-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase())
+                .message("Payment approved successfully")
                 .build();
 
         Payment saved = paymentRepository.save(payment);

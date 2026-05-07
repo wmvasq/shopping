@@ -9,7 +9,10 @@ import com.shopping.products_service.dto.ProductResponse;
 import com.shopping.products_service.exception.ProductNotFoundException;
 
 import lombok.RequiredArgsConstructor;
-
+/**
+ * Service for managing products.
+ * Acts as a proxy to external FakeStore API.
+ */
 @Service
 @RequiredArgsConstructor
 public class ProductService {
